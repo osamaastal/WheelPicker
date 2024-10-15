@@ -78,6 +78,8 @@ fun WheelTimePicker(
 
         val height=( fontSize + 10) .dp
 
+        val initialHourSelection = hours.indexOf(selectedTime.hour)
+        val initialMinuteSelection = minutes.indexOf(selectedTime.minute)
 
         Row(
             modifier = Modifier
@@ -88,7 +90,7 @@ fun WheelTimePicker(
 
             WheelView(modifier = Modifier.weight(3f),
                 itemSize = DpSize(150.dp, height),
-                selection = 0,
+                selection = initialHourSelection,
                 itemCount = hours.size,
                 rowOffset = offset,
                 selectorOption = SelectorOptions().copy(selectEffectEnabled = selectorEffectEnabled, enabled = false),
@@ -108,7 +110,7 @@ fun WheelTimePicker(
 
             WheelView(modifier = Modifier.weight(3f),
                 itemSize = DpSize(150.dp, height),
-                selection = 0,
+                selection = initialMinuteSelection,
                 itemCount = minutes.size,
                 rowOffset = offset,
                 selectorOption = SelectorOptions().copy(selectEffectEnabled = selectorEffectEnabled, enabled = false),
